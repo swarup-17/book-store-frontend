@@ -47,6 +47,7 @@ const Footer = () => {
 
         {/* Right Side - Social Icons */}
         <div className="flex gap-6">
+          <a href="https://www.linkedin.com/in/swarupshedge" target="_blank" rel="noopener noreferrer">@Swarup</a>
           <a href="https://facebook.com" target="_blank" rel="noopener noreferrer" className="hover:text-primary">
             <FaFacebook size={24} />
           </a>
