@@ -10,3 +10,4 @@ Currently, two official plugins are available:
 # book-store-frontend
 # book-store-frontend
 # book-store-frontend
+# book-store-frontend
