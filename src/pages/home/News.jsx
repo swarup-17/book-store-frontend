@@ -80,7 +80,6 @@ const News = () => {
         {news.map((item, index) => (
           <SwiperSlide key={index}>
             <div className="flex flex-col sm:flex-row sm:justify-between items-center gap-12">
-              {/* content */}
               <div className="py-4">
                 <Link to="/">
                   <h3 className="text-lg font-medium hover:text-blue-500 mb-4">

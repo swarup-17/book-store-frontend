@@ -37,15 +37,12 @@ const Footer = () => {
         </div>
       </div>
 
-      {/* Bottom Section */}
       <div className="container mx-auto flex flex-col md:flex-row justify-between items-center mt-10 border-t border-gray-700 pt-6">
-        {/* Left Side - Privacy Links */}
         <ul className="flex gap-6 mb-4 md:mb-0">
           <li><a href="#privacy" className="hover:text-primary">Privacy Policy</a></li>
           <li><a href="#terms" className="hover:text-primary">Terms of Service</a></li>
         </ul>
 
-        {/* Right Side - Social Icons */}
         <div className="flex gap-6">
           <a href="https://www.linkedin.com/in/swarupshedge" target="_blank" rel="noopener noreferrer">@Swarup</a>
           <a href="https://facebook.com" target="_blank" rel="noopener noreferrer" className="hover:text-primary">

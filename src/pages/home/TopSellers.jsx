@@ -4,7 +4,7 @@ import BookCard from "../books/BookCard";
 // Import Swiper React components
 import { Swiper, SwiperSlide } from "swiper/react";
 
-// import required modules
+// Import required modules
 import { Pagination, Navigation } from "swiper/modules";
 
 // Import Swiper styles
@@ -36,7 +36,6 @@ const TopSellers = () => {
   return (
     <div className="py-10">
       <h2 className="text-3xl font-semibold mb-6">Top Sellers</h2>
-      {/* category filtering */}
       <div className="mb-8 flex items-center">
         <select
           onChange={(e) => setSelectedCategory(e.target.value)}
