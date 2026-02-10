@@ -7,14 +7,15 @@ export default {
   theme: {
     extend: {
       colors: {
-        'primary': '#FFCE1A',
-        'secondary' : "#0D0842",
-        'blackBG': '#F3F3F3',
-        'Favorite': '#FF5841'
-      }, 
+        'primary': '#4338ca', // Deep Indigo
+        'secondary': '#F9FAFB', // Soft Gray Surface
+        'accent': '#FF5841', // Coral
+        'dark': '#111827',
+        'light': '#F3F3F3',
+      },
       fontFamily: {
-        'primary' : ["Montserrat", "sans-serif"],
-        'secondary' : ["Nunito Sans", "sans-serif"]
+        'primary': ["Outfit", "sans-serif"],
+        'secondary': ["Inter", "sans-serif"],
       }
     },
   },

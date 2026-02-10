@@ -1,12 +1,11 @@
-import React from "react";
 import {
   useDeleteBookMutation,
   useFetchAllBooksQuery,
 } from "../../../redux/features/books/booksApi";
-import { Link, useNavigate } from "react-router-dom";
+import { Link } from "react-router-dom";
 
 const ManageBooks = () => {
-  const navigate = useNavigate();
+
 
   const { data: books, refetch } = useFetchAllBooksQuery();
 
@@ -22,10 +21,6 @@ const ManageBooks = () => {
       console.error("Failed to delete book:", error.message);
       alert("Failed to delete book. Please try again.");
     }
-  };
-
-  const handleEditClick = (id) => {
-    navigate(`dashboard/edit-book/${id}`);
   };
   return (
     <section className="py-1 bg-blueGray-50">

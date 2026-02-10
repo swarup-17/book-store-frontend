@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import { useState } from "react";
 import InputField from "./InputField";
 import SelectField from "./SelectField";
 import { useForm } from "react-hook-form";
@@ -9,11 +9,9 @@ const AddBook = () => {
   const {
     register,
     handleSubmit,
-    formState: { errors },
     reset,
   } = useForm();
-  const [imageFile, setimageFile] = useState(null);
-  const [addBook, { isLoading, isError }] = useAddBookMutation();
+  const [addBook, { isLoading }] = useAddBookMutation();
   const [imageFileName, setimageFileName] = useState("");
   const onSubmit = async (data) => {
     const newBookData = {
@@ -33,7 +31,6 @@ const AddBook = () => {
       });
       reset();
       setimageFileName("");
-      setimageFile(null);
     } catch (error) {
       console.error(error);
       alert("Failed to add book. Please try again.");
@@ -43,7 +40,6 @@ const AddBook = () => {
   const handleFileChange = (e) => {
     const file = e.target.files[0];
     if (file) {
-      setimageFile(file);
       setimageFileName(file.name);
     }
   };
@@ -51,9 +47,7 @@ const AddBook = () => {
     <div className="max-w-lg   mx-auto md:p-6 p-3 bg-white rounded-lg shadow-md">
       <h2 className="text-2xl font-bold text-gray-800 mb-4">Add New Book</h2>
 
-      {/* Form starts here */}
       <form onSubmit={handleSubmit(onSubmit)} className="">
-        {/* Reusable Input Field for Title */}
         <InputField
           label="Title"
           name="title"
@@ -61,7 +55,6 @@ const AddBook = () => {
           register={register}
         />
 
-        {/* Reusable Textarea for Description */}
         <InputField
           label="Description"
           name="description"
@@ -70,7 +63,6 @@ const AddBook = () => {
           register={register}
         />
 
-        {/* Reusable Select Field for Category */}
         <SelectField
           label="Category"
           name="category"
@@ -81,12 +73,10 @@ const AddBook = () => {
             { value: "fiction", label: "Fiction" },
             { value: "horror", label: "Horror" },
             { value: "adventure", label: "Adventure" },
-            // Add more options as needed
           ]}
           register={register}
         />
 
-        {/* Trending Checkbox */}
         <div className="mb-4">
           <label className="inline-flex items-center">
             <input
@@ -100,7 +90,6 @@ const AddBook = () => {
           </label>
         </div>
 
-        {/* Old Price */}
         <InputField
           label="Old Price"
           name="oldPrice"
@@ -109,7 +98,6 @@ const AddBook = () => {
           register={register}
         />
 
-        {/* New Price */}
         <InputField
           label="New Price"
           name="newPrice"
@@ -118,7 +106,6 @@ const AddBook = () => {
           register={register}
         />
 
-        {/* Cover Image Upload */}
         <div className="mb-4">
           <label className="block text-sm font-semibold text-gray-700 mb-2">
             Cover Image
@@ -134,7 +121,6 @@ const AddBook = () => {
           )}
         </div>
 
-        {/* Submit Button */}
         <button
           type="submit"
           className="w-full py-2 bg-green-500 text-white font-bold rounded-md"

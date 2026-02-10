@@ -1,4 +1,3 @@
-import React from "react";
 import { FiShoppingCart } from "react-icons/fi";
 import { useParams } from "react-router-dom";
 
@@ -20,41 +19,58 @@ const SingleBook = () => {
   if (isLoading) return <div>Loading...</div>;
   if (isError) return <div>Error happending to load book info</div>;
   return (
-    <div className="max-w-lg shadow-md p-5">
-      <h1 className="text-2xl font-bold mb-6">{book.title}</h1>
-
-      <div className="">
-        <div>
+    <div className="max-w-screen-2xl mx-auto px-4 py-10 bg-white shadow rounded-md">
+      <div className="flex flex-col md:flex-row gap-12">
+        {/* Left Side: Image */}
+        <div className="md:w-1/3 w-full flex justify-center">
           <img
             src={`${getImgUrl(book.coverImage)}`}
             alt={book.title}
-            className="mb-8"
+            className="w-full max-w-sm rounded-lg shadow-lg object-cover hover:scale-105 transition-transform duration-300"
           />
         </div>
 
-        <div className="mb-5">
-          <p className="text-gray-700 mb-2">
-            <strong>Author:</strong> {book.author || "admin"}
-          </p>
-          <p className="text-gray-700 mb-4">
-            <strong>Published:</strong>{" "}
-            {new Date(book?.createdAt).toLocaleDateString()}
-          </p>
-          <p className="text-gray-700 mb-4 capitalize">
-            <strong>Category:</strong> {book?.category}
-          </p>
-          <p className="text-gray-700">
-            <strong>Description:</strong> {book.description}
-          </p>
-        </div>
+        {/* Right Side: Details */}
+        <div className="md:w-2/3 w-full space-y-6">
+          <div>
+            <h1 className="text-4xl font-bold text-gray-900 mb-2 font-primary">
+              {book.title}
+            </h1>
+            <p className="text-lg text-gray-600">
+              by <span className="font-semibold text-primary">{book.author || "Unknown Author"}</span>
+            </p>
+          </div>
 
-        <button
-          onClick={() => handleAddToCart(book)}
-          className="btn-primary px-6 space-x-1 flex items-center gap-1 "
-        >
-          <FiShoppingCart className="" />
-          <span>Add to Cart</span>
-        </button>
+          <div className="flex items-center gap-4">
+            <span className="bg-blue-100 text-blue-800 text-xs font-semibold px-2.5 py-0.5 rounded dark:bg-blue-200 dark:text-blue-800 capitalize">
+              {book?.category}
+            </span>
+            <span className="text-gray-500 text-sm">
+              Published: {new Date(book?.createdAt).toLocaleDateString()}
+            </span>
+          </div>
+
+          <div>
+            <p className="text-gray-700 leading-relaxed text-lg">
+              <strong>Description:</strong> {book.description}
+            </p>
+          </div>
+
+          <div className="flex items-center gap-4 mt-8">
+            <span className="text-3xl font-bold text-gray-900">${book.newPrice}</span>
+            {book.oldPrice && (
+              <span className="text-xl text-gray-400 line-through">${book.oldPrice}</span>
+            )}
+          </div>
+
+          <button
+            onClick={() => handleAddToCart(book)}
+            className="btn-primary w-full md:w-auto px-8 py-3 flex items-center justify-center gap-2 text-lg"
+          >
+            <FiShoppingCart className="size-5" />
+            <span>Add to Cart</span>
+          </button>
+        </div>
       </div>
     </div>
   );

@@ -32,39 +32,32 @@ const Navbar = () => {
   const token = localStorage.getItem("token");
 
   return (
-    <header className="max-w-screen-2xl mx-auto px-4 py-6">
-      <nav className="flex justify-between items-center">
-        <div className="flex items-center md:gap-16 gap-4">
-          <Link to="/">
-            <HiMiniBars3CenterLeft className="size-6" />
+    <header className="sticky top-0 z-50 bg-white/80 backdrop-blur-md shadow-sm transition-colors duration-300">
+      <nav className="max-w-screen-2xl mx-auto px-4 py-4 flex justify-between items-center">
+        {/* Left Side */}
+        <div className="flex items-center md:gap-8 gap-4">
+          <Link to="/" className="text-2xl font-bold text-gray-800">
+            Book Store
           </Link>
-
-          <div className="relative sm:w-72 w-40 space-x-2">
-            <IoSearchOutline className="absolute inline-block left-3 inset-y-2" />
-
-            <input
-              type="text"
-              placeholder="Search here"
-              className="bg-[#EAEAEA] w-full py-1 md:px-8 px-6 rounded-md focus:outline-none"
-            />
-          </div>
         </div>
 
-        <div className="relative flex items-center md:space-x-3 space-x-2">
+        {/* Right Side */}
+        <div className="relative flex items-center md:space-x-4 space-x-2">
+
           <div>
             {currentUser ? (
               <>
-                <button onClick={() => setIsDropdownOpen(!isDropdownOpen)}>
+                <button onClick={() => setIsDropdownOpen(!isDropdownOpen)} className="relative group">
                   <img
                     src={avatarImg}
                     alt=""
-                    className={`size-7 rounded-full ${
-                      currentUser ? "ring-2 ring-blue-500" : ""
-                    }`}
+                    className={`size-8 rounded-full ring-2 transition-all ${currentUser ? "ring-primary group-hover:ring-indigo-600" : "ring-transparent"
+                      }`}
                   />
+                  <div className="absolute inset-0 rounded-full bg-black opacity-0 group-hover:opacity-10 transition-opacity" />
                 </button>
                 {isDropdownOpen && (
-                  <div className="absolute right-0 mt-2 w-48 bg-white shadow-lg rounded-md z-40">
+                  <div className="absolute right-0 mt-2 w-48 bg-white shadow-xl rounded-md z-40 border border-gray-100 animate-fade-in-down">
                     <ul className="py-2">
                       {navigation.map((item) => (
                         <li
@@ -73,7 +66,7 @@ const Navbar = () => {
                         >
                           <Link
                             to={item.href}
-                            className="block px-4 py-2 text-sm hover:bg-gray-100"
+                            className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100"
                           >
                             {item.name}
                           </Link>
@@ -82,7 +75,7 @@ const Navbar = () => {
                       <li>
                         <button
                           onClick={handleLogOut}
-                          className="block w-full text-left px-4 py-2 text-sm hover:bg-gray-100"
+                          className="block w-full text-left px-4 py-2 text-sm text-gray-700 hover:bg-gray-100"
                         >
                           Logout
                         </button>
@@ -92,32 +85,34 @@ const Navbar = () => {
                 )}
               </>
             ) : token ? (
-              <Link to="/dashboard" className="border-b-2 border-primary">
+              <Link
+                to="/dashboard"
+                className="text-primary font-medium hover:underline"
+              >
                 Dashboard
               </Link>
             ) : (
-              <Link to="/login">
-                {" "}
-                <HiOutlineUser className="size-6" />
+              <Link to="/login" className="p-2 hover:bg-gray-100 rounded-full">
+                <HiOutlineUser className="size-6 text-gray-800" />
               </Link>
             )}
           </div>
 
-          <button className="hidden sm:block">
-            <HiOutlineHeart className="size-6" />
-          </button>
+          <Link to="/favorites" className="hidden sm:block p-2 hover:bg-gray-100 rounded-full">
+            <HiOutlineHeart className="size-6 text-gray-800" />
+          </Link>
 
           <Link
             to="/cart"
-            className="bg-primary p-1 sm:px-6 px-2 flex items-center rounded-sm"
+            className="bg-primary hover:bg-indigo-600 text-white p-2 px-4 flex items-center rounded-full transition-colors shadow-md"
           >
-            <HiOutlineShoppingCart className="" />
+            <HiOutlineShoppingCart className="size-5" />
             {cartItems.length > 0 ? (
-              <span className="text-sm font-semibold sm:ml-1">
+              <span className="text-sm font-semibold ml-2">
                 {cartItems.length}
               </span>
             ) : (
-              <span className="text-sm font-semibold sm:ml-1">0</span>
+              <span className="text-sm font-semibold ml-2">0</span>
             )}
           </Link>
         </div>

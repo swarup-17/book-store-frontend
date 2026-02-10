@@ -1,5 +1,5 @@
 const getBaseUrl = () => {
-    return "https://book-store-backend-mocha.vercel.app"
+    return import.meta.env.VITE_BACKEND_URL || "http://localhost:5000";
 }
 
 export default getBaseUrl;
