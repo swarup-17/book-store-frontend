@@ -14,7 +14,7 @@ export default {
         'light': '#F3F3F3',
       },
       fontFamily: {
-        'primary': ["Outfit", "sans-serif"],
+        'primary': ["Montserrat", "sans-serif"],
         'secondary': ["Inter", "sans-serif"],
       }
     },

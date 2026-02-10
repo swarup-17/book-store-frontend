@@ -51,41 +51,35 @@ const TopSellers = () => {
         </select>
       </div>
 
-      {/* Swiper for Mobile and Tablet (below lg breakpoint) */}
-      <div className="block lg:hidden">
-        <Swiper
-          slidesPerView={1}
-          spaceBetween={30}
-          navigation={true}
-          breakpoints={{
-            640: {
-              slidesPerView: 1,
-              spaceBetween: 20,
-            },
-            768: {
-              slidesPerView: 2,
-              spaceBetween: 40,
-            },
-          }}
-          modules={[Pagination, Navigation]}
-          className="mySwiper"
-        >
-          {filteredBooks.length > 0 &&
-            filteredBooks.map((book, index) => (
-              <SwiperSlide key={index}>
-                <BookCard book={book} />
-              </SwiperSlide>
-            ))}
-        </Swiper>
-      </div>
-
-      {/* Grid for Desktop (lg and above) */}
-      <div className="hidden lg:grid lg:grid-cols-3 xl:grid-cols-4 gap-8">
+      {/* Swiper for all screen sizes - responsive */}
+      <Swiper
+        slidesPerView={1}
+        spaceBetween={20}
+        navigation={true}
+        breakpoints={{
+          640: {
+            slidesPerView: 2,
+            spaceBetween: 20,
+          },
+          768: {
+            slidesPerView: 3,
+            spaceBetween: 24,
+          },
+          1024: {
+            slidesPerView: 3,
+            spaceBetween: 24,
+          },
+        }}
+        modules={[Pagination, Navigation]}
+        className="mySwiper"
+      >
         {filteredBooks.length > 0 &&
           filteredBooks.map((book, index) => (
-            <BookCard key={index} book={book} />
+            <SwiperSlide key={index}>
+              <BookCard book={book} />
+            </SwiperSlide>
           ))}
-      </div>
+      </Swiper>
     </div>
   );
 };

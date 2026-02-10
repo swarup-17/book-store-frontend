@@ -34,27 +34,24 @@ const Navbar = () => {
   return (
     <header className="sticky top-0 z-50 bg-white/80 backdrop-blur-md shadow-sm transition-colors duration-300">
       <nav className="max-w-screen-2xl mx-auto px-4 py-4 flex justify-between items-center">
-        {/* Left Side */}
-        <div className="flex items-center md:gap-8 gap-4">
-          <Link to="/" className="text-2xl font-bold text-gray-800">
-            Book Store
-          </Link>
-        </div>
+        <Link to="/" className="flex items-center gap-1">
+          <img src="/fav-icon.png" alt="Book Store Logo" className="size-8" />
+          <span className="text-2xl font-bold text-gray-800">BookStore</span>
+        </Link>
 
-        {/* Right Side */}
         <div className="relative flex items-center md:space-x-4 space-x-2">
 
           <div>
             {currentUser ? (
               <>
-                <button onClick={() => setIsDropdownOpen(!isDropdownOpen)} className="relative group">
+                <button onClick={() => setIsDropdownOpen(!isDropdownOpen)} className="relative group block">
                   <img
                     src={avatarImg}
                     alt=""
-                    className={`size-8 rounded-full ring-2 transition-all ${currentUser ? "ring-primary group-hover:ring-indigo-600" : "ring-transparent"
+                    className={`size-8 rounded-full ring-2 ${currentUser ? "ring-primary" : "ring-transparent"
                       }`}
                   />
-                  <div className="absolute inset-0 rounded-full bg-black opacity-0 group-hover:opacity-10 transition-opacity" />
+                  <div className="absolute inset-0 rounded-full bg-black opacity-0 pointer-events-none" />
                 </button>
                 {isDropdownOpen && (
                   <div className="absolute right-0 mt-2 w-48 bg-white shadow-xl rounded-md z-40 border border-gray-100 animate-fade-in-down">
