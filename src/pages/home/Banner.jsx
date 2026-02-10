@@ -40,7 +40,7 @@ const Banner = () => {
           transition={{ duration: 0.5, delay: 0.4 }}
           whileHover={{ scale: 1.05 }}
           whileTap={{ scale: 0.95 }}
-          className="btn-primary"
+          className="text-white bg-primary px-6 py-2 rounded-full hover:bg-primary-dark"
         >
           Subscribe
         </motion.button>

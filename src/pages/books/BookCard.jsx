@@ -80,7 +80,7 @@ const BookCard = ({ book }) => {
               </span>
             </p>
           </div>
-          <div className="flex items-center gap-2">
+          <div className="flex items-center justify-around">
             <button
               onClick={() => handleAddToCart(book)}
               className="px-4 py-1.5 flex items-center gap-1 bg-primary text-white rounded hover:bg-indigo-600 transition-colors shadow text-sm font-medium w-fit"

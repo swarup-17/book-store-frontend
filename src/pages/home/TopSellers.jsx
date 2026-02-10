@@ -41,7 +41,7 @@ const TopSellers = () => {
           onChange={(e) => setSelectedCategory(e.target.value)}
           name="category"
           id="category"
-          className="border bg-[#EAEAEA] border-gray-300 rounded-md px-4 py-2 focus:outline-none"
+          className="border border-gray-300 rounded-md px-4 py-2 focus:outline-none"
         >
           {categories.map((category, index) => (
             <option key={index} value={category}>
@@ -51,7 +51,6 @@ const TopSellers = () => {
         </select>
       </div>
 
-      {/* Swiper for all screen sizes - responsive */}
       <Swiper
         slidesPerView={1}
         spaceBetween={20}
@@ -62,11 +61,11 @@ const TopSellers = () => {
             spaceBetween: 20,
           },
           768: {
-            slidesPerView: 3,
+            slidesPerView: 2,
             spaceBetween: 24,
           },
           1024: {
-            slidesPerView: 3,
+            slidesPerView: 2,
             spaceBetween: 24,
           },
         }}

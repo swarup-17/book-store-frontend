@@ -33,7 +33,7 @@ const Navbar = () => {
 
   return (
     <header className="sticky top-0 z-50 bg-white/80 backdrop-blur-md shadow-sm transition-colors duration-300">
-      <nav className="max-w-screen-2xl mx-auto px-4 py-4 flex justify-between items-center">
+      <nav className="max-w-screen-2xl mx-auto px-4 py-2 flex justify-between items-center">
         <Link to="/" className="flex items-center gap-1">
           <img src="/fav-icon.png" alt="Book Store Logo" className="size-8" />
           <span className="text-2xl font-bold text-gray-800">BookStore</span>
